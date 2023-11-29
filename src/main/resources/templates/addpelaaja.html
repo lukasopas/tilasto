@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<html xmlns:th=http://www.thymeleaf.org>
+<head>
+	<title>Lisää Pelaaja</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>Lisää Pelaaja</h1>
+	<div>
+		<form th:object="${pelaaja}" th:action="@{savePelaaja}" action="#" method="post">
+			<label for="firstName">firstname</label>
+			<input type="text" id="firstName" th:field="*{firstName}" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+			<label for="lastName">lastName</label>
+			<input type="text" id="lastName" th:field="*{lastName}" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+			<label for="joukkue">joukkue</label>
+			<input type="text" id="joukkue" th:field="*{joukkue}" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+					<label for="pelinumero">pelinumero</label>
+			<input type="text" id="pelinumero" th:field="*{pelinumero}" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+					<label for="maalit">maalit</label>
+			<input type="text" id="maalit" th:field="*{maalit}" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+					<label for="syotot">Syötöt</label>
+			<input type="text" id="syotot" th:field="*{syotot}"/>
+			<div style="clear: both; display: block; height: 10px;"></div>
+					<label for="pelatutottelut">pelatutottelut</label>
+			<input type="text" id="pelatutottelut" th:field="*{pelatutottelut}" />
+		
+			<input type="submit" value="Save"></input>
+		</form>
+	</div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Edit tilasto</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>Edit tilasto</h1>
+	<div>
+		<form th:object="${pelaaja}" th:action="@{../saveEdit}" action="#" method="post">
+	
+
+			<label for="firstName">Etunimi</label>
+			<input type="text" id="firstName" th:field="*{firstName}" />
+			
+			<label for="lastName">Sukunimi</label>
+			<input type="text" id="lastName" th:field="*{lastName}" />
+			
+			<label for="joukkue">joukkue</label>
+			<input type="text" id="joukkue" th:field="*{joukkue}" />
+			
+					<label for="pelinumero">pelinumero</label>
+			<input type="text" id="pelinumero" th:field="*{pelinumero.numero}" />
+			
+					<label for="maalit">maalit</label>
+			<input type="text" id="maalit" th:field="*{maalit}" />
+			
+					<label for="syotot">Syötöt</label>
+			<input type="text" id="syotot" th:field="*{syotot}"/>
+			
+					<label for="pelatutottelut">pelatutottelut</label>
+			<input type="text" id="pelatutottelut" th:field="*{pelatutottelut}" />
+
+<div style="clear: both; display: block; height: 10px;"></div>
+		<input type="submit" value="Save"></input>
+
+		</form>
+	</div>
+</body>
+</html>

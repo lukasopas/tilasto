@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" >
+
+<head>
+	<title>Tilasto</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  
+</head>
+<body>
+	<div class="container">
+		<div class="col-md-4">
+	<h1>Tilasto</h1>
+	<div class="col-md-4">
+        <span  sec:authentication="name">Name</span>
+		
+	</div>
+	<div class="col-md-4" style="padding:20px 0">
+		<form th:action="@{/logout}" method="post">
+			<input type="submit" value="Sign Out" class="btn btn-sm btn-danger"/>
+		</form>
+	</div>
+		<table>
+			<tr>
+				<th>Etunimi</th>
+				<th>Sukunimi</th>
+				<th>Joukkue</th>
+				<th>Pelinumero</th>
+				<th>Maalit</th>
+				<th>Syötöt</th>
+				<th>Pelatutottelut</th>
+			</tr>
+			<tr th:each="pelaaja : ${pelaajat}">
+    		<td th:text="${pelaaja.firstName}"></td>
+    		<td th:text="${pelaaja.lastName}"></td>
+    		<td th:text="${pelaaja.joukkue}"></td>
+    		<td th:text="${pelaaja.pelinumero.numero}"></td>
+    		<td th:text="${pelaaja.maalit}"></td>
+    		<td th:text="${pelaaja.syotot}"></td>
+    		<td th:text="${pelaaja.pelatutottelut}"></td>
+	     	<td><a th:href="@{/edit/{id}(id=${pelaaja.pelaajaid})}">Edit</a>  </td>
+	    	<td sec:authorize="hasAuthority('ADMIN')">	<a th:href="@{/delete/{id}(id=${pelaaja.pelaajaid})}">Delete</a> </td>
+    	
+    		</tr>
+		</table>
+				
+				<a href="/add" class="btn btn-primary">Lisaa pelaaja</a>
+				
+</body>
+</html>
